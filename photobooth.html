@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photobooth — Polaroid</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="booth-body">
+<div id="boothFlash" class="screen-flash"></div>
+<header class="navbar">
+    <a class="brand" href="index.html">POLAROID.</a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="navLinks">
+        <a href="camera.html">Camera</a>
+        <a class="active" href="photobooth.html">Photobooth</a>
+        <a href="darkroom.html">Darkroom</a>
+        <a href="shoebox.html">Shoebox</a>
+        <a href="wall.html">Wall</a>
+    </nav>
+</header>
+
+
+<main class="tool-page">
+
+    <div class="page-heading">
+        <p class="eyebrow">02 / POSE</p>
+        <h1>Three shots. No overthinking.</h1>
+        <p>
+            Three photographs, three seconds apart.
+            Change the pose before the next flash.
+        </p>
+    </div>
+
+
+    <section class="booth-layout">
+
+        <div class="booth-camera">
+
+            <div class="video-wrapper">
+
+                <video
+                    id="video"
+                    autoplay
+                    playsinline>
+                </video>
+
+                <div id="cameraPlaceholder"
+                     class="camera-placeholder">
+                    <span>◎</span>
+                    <p>Your camera preview will appear here.</p>
+                </div>
+
+                <div id="countdown"
+                     class="countdown">
+                </div>
+
+                <div id="boothFlash"
+                     class="flash-overlay">
+                </div>
+
+            </div>
+
+
+            <canvas id="captureCanvas"
+                    class="hidden">
+            </canvas>
+            <div class="booth-actions">
+
+        <button id="enableCamera"
+            class="secondary-btn">
+        Enable camera
+        </button>
+
+        <button id="flashToggle"
+            class="secondary-btn flash-toggle">
+        ⚡ Flash OFF
+        </button>
+
+        <button id="startBooth"
+            class="primary-btn"
+            disabled>
+            Start session
+        </button>
+
+        </div>
+
+            
+
+            <p id="boothMessage"
+               class="status-message">
+                3 photos · 3 seconds apart
+            </p>
+
+        </div>
+
+
+        <aside class="strip-area">
+
+            <p class="control-title">
+                YOUR STRIP
+            </p>
+
+            <div id="photoStrip"
+                 class="photo-strip">
+
+                <div class="strip-photo"
+                     data-index="0">
+                    <span>01</span>
+                </div>
+
+                <div class="strip-photo"
+                     data-index="1">
+                    <span>02</span>
+                </div>
+
+                <div class="strip-photo"
+                     data-index="2">
+                    <span>03</span>
+                </div>
+
+                <input
+                    id="stripCaption"
+                    class="strip-caption"
+                    maxlength="24"
+                    placeholder="sunday ♡"
+                >
+
+                <span id="stripDate"
+                      class="strip-date">
+                </span>
+
+            </div>
+
+
+            <div class="strip-styles">
+
+                <button class="strip-style selected"
+                        data-style="classic">
+                    Classic
+                </button>
+
+                <button class="strip-style"
+                        data-style="black">
+                    Black
+                </button>
+
+                <button class="strip-style"
+                        data-style="retro">
+                    Retro
+                </button>
+
+                <button class="strip-style"
+                        data-style="pastel">
+                    Pastel
+                </button>
+
+            </div>
+
+
+            <div id="stripActions"
+                 class="strip-actions hidden">
+
+                <button id="retakeOne"
+                        class="secondary-btn">
+                    Retake one
+                </button>
+
+                <button id="restartBooth"
+                        class="secondary-btn">
+                    Start over
+                </button>
+
+                <button id="saveStrip"
+                        class="primary-btn">
+                    Keep strip
+                </button>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+</main>
+
+
+<script src="js/common.js"></script>
+<script src="js/photobooth.js"></script>
+
+</body>
+</html>

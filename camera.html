@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera — Polaroid</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a class="brand" href="index.html">POLAROID.</a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="navLinks">
+        <a class="active" href="camera.html">Camera</a>
+        <a href="photobooth.html">Photobooth</a>
+        <a href="darkroom.html">Darkroom</a>
+        <a href="shoebox.html">Shoebox</a>
+        <a href="wall.html">Wall</a>
+    </nav>
+</header>
+
+
+<main class="tool-page">
+
+    <div class="page-heading">
+        <p class="eyebrow">01 / CAPTURE</p>
+
+        <h1>Make a Polaroid.</h1>
+
+        <p>
+            Load a photograph into the camera, frame your moment,
+            choose your film and press the shutter.
+        </p>
+    </div>
+
+
+    <section class="new-camera-workspace">
+
+        <!-- LEFT CONTROLS -->
+
+        <aside class="camera-controls">
+
+            <div class="camera-step">
+                <span class="step-number">01</span>
+
+                <div>
+                    <h3>Load your camera</h3>
+                    <p>Choose a photograph from your device.</p>
+                </div>
+            </div>
+
+
+            <label class="upload-box">
+                <span class="upload-icon">＋</span>
+                <strong>Choose photograph</strong>
+                <small>JPG, PNG or WEBP</small>
+
+                <input
+                    type="file"
+                    id="photoInput"
+                    accept="image/*"
+                    hidden
+                >
+            </label>
+
+
+            <div
+                id="framingControls"
+                class="framing-controls hidden"
+            >
+
+                <div class="camera-step">
+                    <span class="step-number">02</span>
+
+                    <div>
+                        <h3>Frame it</h3>
+                        <p>Drag the photograph to choose your crop.</p>
+                    </div>
+                </div>
+
+
+                <div class="zoom-control">
+
+                    <div class="zoom-label">
+                        <span>ZOOM</span>
+                        <span id="zoomValue">100%</span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="zoomSlider"
+                        min="1"
+                        max="2.5"
+                        value="1"
+                        step="0.01"
+                    >
+
+                </div>
+
+
+                <button
+                    id="resetPosition"
+                    class="text-button"
+                >
+                    ↺ Reset framing
+                </button>
+
+
+                <div class="camera-step film-step">
+                    <span class="step-number">03</span>
+
+                    <div>
+                        <h3>Choose your film</h3>
+                        <p>Give the photograph its character.</p>
+                    </div>
+                </div>
+
+
+                <div class="film-options">
+
+                    <button
+                        class="film-btn selected"
+                        data-filter="classic"
+                    >
+                        <span class="film-preview classic"></span>
+                        Classic
+                    </button>
+
+                    <button
+                        class="film-btn"
+                        data-filter="warm"
+                    >
+                        <span class="film-preview warm"></span>
+                        Warm
+                    </button>
+
+                    <button
+                        class="film-btn"
+                        data-filter="faded"
+                    >
+                        <span class="film-preview faded"></span>
+                        Faded
+                    </button>
+
+                    <button
+                        class="film-btn"
+                        data-filter="bw"
+                    >
+                        <span class="film-preview bw"></span>
+                        B&W
+                    </button>
+
+                    <button
+                        class="film-btn"
+                        data-filter="cool"
+                    >
+                        <span class="film-preview cool"></span>
+                        Cool
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- RIGHT CAMERA AREA -->
+
+        <section class="capture-area">
+
+            <p class="camera-section-label">
+                VIEWFINDER
+            </p>
+
+
+            <div class="digital-camera">
+
+                <div class="camera-details">
+
+                    <div class="camera-flash-unit"></div>
+
+                    <span>INSTANT</span>
+
+                    <div class="camera-view-dot"></div>
+
+                </div>
+
+
+                <!-- VIEWFINDER -->
+
+                <div
+                    id="viewfinder"
+                    class="photo-viewfinder"
+                >
+
+                    <div
+                        id="viewfinderEmpty"
+                        class="viewfinder-empty"
+                    >
+                        <span>＋</span>
+                        <p>load a photograph</p>
+                    </div>
+
+
+                    <img
+                        id="previewImage"
+                        draggable="false"
+                        alt="Camera preview"
+                    >
+
+
+                    <div
+                        id="dragHint"
+                        class="drag-hint hidden"
+                    >
+                        ↔ drag to frame
+                    </div>
+
+
+                    <div class="focus-mark top-left"></div>
+                    <div class="focus-mark top-right"></div>
+                    <div class="focus-mark bottom-left"></div>
+                    <div class="focus-mark bottom-right"></div>
+
+                </div>
+
+
+                <div class="camera-bottom">
+
+                    <div>
+                        <strong>POLAROID</strong>
+                        <small>INSTANT CAMERA</small>
+                    </div>
+
+
+                    <button
+                        id="takePolaroid"
+                        class="physical-shutter"
+                        disabled
+                        aria-label="Take photograph"
+                    >
+                        <span></span>
+                    </button>
+
+                </div>
+
+
+                <!-- PHOTO EXIT SLOT -->
+
+                <div class="photo-slot"></div>
+
+            </div>
+
+
+            <p
+                id="cameraMessage"
+                class="camera-instruction"
+            >
+                Choose a photograph to begin.
+            </p>
+
+
+            <!-- FLASH -->
+
+            <div
+                id="cameraFlash"
+                class="flash-overlay"
+            ></div>
+
+
+            <!-- POLAROID RESULT -->
+
+            <section
+                id="developingArea"
+                class="developing-area hidden"
+            >
+
+                <p class="camera-section-label">
+                    YOUR POLAROID
+                </p>
+
+
+                <div
+                    id="polaroid"
+                    class="polaroid-card result-polaroid"
+                >
+
+                    <div
+                        class="polaroid-inner"
+                        id="polaroidInner"
+                    >
+
+                        <!-- FRONT -->
+
+                        <div class="polaroid-front">
+
+                            <div class="photo-area">
+
+                                <img
+                                    id="polaroidImage"
+                                    alt="Developing Polaroid"
+                                >
+
+                                <div
+                                    id="developWash"
+                                    class="develop-wash"
+                                ></div>
+
+                            </div>
+
+
+                            <input
+                                id="captionInput"
+                                class="caption-input"
+                                maxlength="35"
+                                placeholder="write something..."
+                                disabled
+                            >
+
+
+                            <span
+                                id="dateLabel"
+                                class="photo-date"
+                            ></span>
+
+                        </div>
+
+
+                        <!-- BACK -->
+
+                        <div class="polaroid-back">
+
+                            <p class="back-label">
+                                THE STORY BEHIND THIS ONE
+                            </p>
+
+
+                            <textarea
+                                id="memoryInput"
+                                maxlength="220"
+                                placeholder="What happened that day?"
+                                disabled
+                            ></textarea>
+
+
+                            <span id="backDate"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DEVELOPMENT -->
+
+                <div
+                    id="developControls"
+                    class="develop-controls"
+                >
+
+                    <p id="developText">
+                        developing... 0%
+                    </p>
+
+
+                    <div class="progress-track">
+
+                        <div
+                            id="developProgress"
+                            class="progress-fill"
+                        ></div>
+
+                    </div>
+
+
+                    <small>
+                        Grab the Polaroid and shake it if you're impatient.
+                    </small>
+
+                </div>
+
+
+                <!-- AFTER DEVELOPMENT -->
+
+                <div
+                    id="finishedControls"
+                    class="finished-controls hidden"
+                >
+
+                    <button
+                        id="flipPhoto"
+                        class="secondary-btn"
+                    >
+                        ↻ Flip photo
+                    </button>
+
+
+                    <button
+                        id="savePhoto"
+                        class="primary-btn"
+                    >
+                        Put in Shoebox
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Hidden canvas used to capture crop -->
+
+            <canvas
+                id="cropCanvas"
+                width="700"
+                height="700"
+                class="hidden"
+            ></canvas>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<script src="js/common.js"></script>
+<script src="js/camera.js"></script>
+
+</body>
+</html>

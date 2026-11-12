@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoebox | Polaroid</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="shoebox-body">
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">POLAROID.</a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="camera.html">CAMERA</a>
+        <a href="photobooth.html">PHOTOBOOTH</a>
+        <a href="darkroom.html">DARKROOM</a>
+        <a href="shoebox.html" class="active">SHOEBOX</a>
+        <a href="wall.html">WALL</a>
+    </nav>
+
+</header>
+
+
+<section class="shoebox-intro">
+
+    <p class="section-number">04 / SHOEBOX</p>
+
+    <h1>
+        the things<br>
+        we kept.
+    </h1>
+
+    <p>
+        Every photograph you've decided was worth keeping.
+        Pick one up. Turn it over. Remember.
+    </p>
+
+</section>
+
+
+<section class="shoebox-toolbar">
+
+    <div class="shoebox-filters">
+
+        <button class="box-filter active" data-filter="all">
+            ALL
+        </button>
+
+        <button class="box-filter" data-filter="polaroid">
+            POLAROIDS
+        </button>
+
+        <button class="box-filter" data-filter="strip">
+            PHOTO STRIPS
+        </button>
+
+    </div>
+
+    <button id="pickMemory" class="primary-btn">
+        PICK A MEMORY
+    </button>
+
+</section>
+
+
+<main class="shoebox-shell">
+
+    <div class="box-back">
+
+        <div class="box-label">
+            <span>POLAROID</span>
+            <small>MEMORIES</small>
+        </div>
+
+        <div id="memoryPile" class="memory-pile">
+
+            <div id="emptyShoebox" class="empty-shoebox">
+                <span>♡</span>
+
+                <h2>nothing in here yet.</h2>
+
+                <p>
+                    Take a photograph and save something worth remembering.
+                </p>
+
+                <a href="camera.html">
+                    TAKE A PHOTO →
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- MEMORY VIEWER -->
+
+<div id="memoryViewer" class="memory-viewer hidden">
+
+    <div
+        id="viewerBackdrop"
+        class="viewer-backdrop">
+    </div>
+
+    <div class="viewer-content">
+
+        <button
+            id="closeViewer"
+            class="viewer-close"
+            aria-label="Close">
+            ×
+        </button>
+
+        <div id="viewerMemory"></div>
+
+        <div class="viewer-actions">
+
+            <button id="viewerFlip" class="secondary-btn">
+                FLIP ↻
+            </button>
+
+            <button id="addToWall" class="primary-btn">
+                PIN TO WALL
+            </button>
+
+            <button id="deleteMemory" class="danger-text-btn">
+                DELETE
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/common.js"></script>
+<script src="js/shoebox.js"></script>
+
+</body>
+
+</html>

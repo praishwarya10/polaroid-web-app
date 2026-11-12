@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Darkroom | Polaroid</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="darkroom-body">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            POLAROID.
+        </a>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="camera.html">CAMERA</a>
+            <a href="photobooth.html">PHOTOBOOTH</a>
+            <a href="darkroom.html" class="active">DARKROOM</a>
+            <a href="shoebox.html">SHOEBOX</a>
+            <a href="wall.html">WALL</a>
+        </nav>
+
+    </header>
+
+
+    <!-- DARKROOM HEADER -->
+    <section class="darkroom-intro">
+
+        <p class="darkroom-number">03 / DARKROOM</p>
+
+        <h1>
+            some memories<br>
+            need time to appear.
+        </h1>
+
+        <p>
+            Bring in a photograph. Let it develop.
+            Then make it yours.
+        </p>
+
+    </section>
+
+
+    <!-- RED SAFELIGHT -->
+    <div class="safe-light" aria-hidden="true">
+        <div class="safe-light-wire"></div>
+        <div class="safe-light-lamp"></div>
+        <div class="safe-light-glow"></div>
+    </div>
+
+
+    <!-- MAIN DARKROOM -->
+    <main class="darkroom-workspace">
+
+        <!-- LEFT SIDE -->
+        <section class="darkroom-controls">
+
+            <!-- STEP 1 -->
+            <div class="darkroom-step">
+
+                <span class="step-number">01</span>
+
+                <h2>Bring in a photo</h2>
+
+                <p>
+                    Choose a photograph to process.
+                </p>
+
+                <label class="dark-upload-btn">
+
+                    SELECT PHOTO
+
+                    <input
+                        type="file"
+                        id="darkroomInput"
+                        accept="image/*"
+                        hidden
+                    >
+
+                </label>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+            <div
+                class="darkroom-step hidden"
+                id="developStep"
+            >
+
+                <span class="step-number">02</span>
+
+                <h2>Develop it</h2>
+
+                <p>
+                    Lower the print into the developer.
+                </p>
+
+                <button
+                    id="developButton"
+                    class="dark-primary-btn"
+                >
+                    DEVELOP PHOTO
+                </button>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+            <div
+                class="darkroom-step hidden"
+                id="adjustmentStep"
+            >
+
+                <span class="step-number">03</span>
+
+                <h2>Fine tune</h2>
+
+                <p class="control-hint">
+                    Make the memory feel the way you remember it.
+                </p>
+
+
+                <!-- EXPOSURE -->
+                <div class="dark-slider">
+
+                    <div class="slider-label">
+                        <label for="exposure">
+                            Exposure
+                        </label>
+
+                        <span id="exposureValue">
+                            100
+                        </span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="exposure"
+                        min="60"
+                        max="140"
+                        value="100"
+                    >
+
+                </div>
+
+
+                <!-- CONTRAST -->
+                <div class="dark-slider">
+
+                    <div class="slider-label">
+                        <label for="contrast">
+                            Contrast
+                        </label>
+
+                        <span id="contrastValue">
+                            100
+                        </span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="contrast"
+                        min="60"
+                        max="150"
+                        value="100"
+                    >
+
+                </div>
+
+
+                <!-- WARMTH -->
+                <div class="dark-slider">
+
+                    <div class="slider-label">
+                        <label for="warmth">
+                            Warmth
+                        </label>
+
+                        <span id="warmthValue">
+                            0
+                        </span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="warmth"
+                        min="0"
+                        max="60"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <!-- SATURATION -->
+                <div class="dark-slider">
+
+                    <div class="slider-label">
+                        <label for="saturation">
+                            Saturation
+                        </label>
+
+                        <span id="saturationValue">
+                            100
+                        </span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="saturation"
+                        min="0"
+                        max="160"
+                        value="100"
+                    >
+
+                </div>
+
+
+                <!-- GRAIN -->
+                <div class="dark-slider">
+
+                    <div class="slider-label">
+                        <label for="grain">
+                            Grain
+                        </label>
+
+                        <span id="grainValue">
+                            0
+                        </span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="grain"
+                        min="0"
+                        max="35"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <!-- FADE -->
+                <div class="dark-slider">
+
+                    <div class="slider-label">
+                        <label for="fade">
+                            Fade
+                        </label>
+
+                        <span id="fadeValue">
+                            0
+                        </span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="fade"
+                        min="0"
+                        max="45"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <button
+                    id="resetDarkroom"
+                    class="dark-text-btn"
+                >
+                    Reset adjustments
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="darkroom-stage">
+
+            <p class="stage-label">
+                DEVELOPER TRAY
+            </p>
+
+
+            <!-- TRAY -->
+            <div
+                class="developer-tray"
+                id="developerTray"
+            >
+
+                <div class="tray-inner">
+
+                    <!-- WATER -->
+                    <div
+                        class="chemical-water"
+                        id="chemicalWater"
+                    ></div>
+
+
+                    <!-- EMPTY STATE -->
+                    <div
+                        class="tray-empty"
+                        id="trayEmpty"
+                    >
+                        <span>+</span>
+
+                        <p>
+                            waiting for a photograph
+                        </p>
+                    </div>
+
+
+                    <!-- PHOTO -->
+                    <div
+                        class="darkroom-print hidden"
+                        id="darkroomPrint"
+                    >
+
+                        <canvas
+                            id="darkroomCanvas"
+                        ></canvas>
+
+                        <div
+                            class="developer-wash"
+                            id="developerWash"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p
+                class="darkroom-message"
+                id="darkroomMessage"
+            >
+                The room is ready.
+            </p>
+
+
+            <!-- DEVELOPMENT PROGRESS -->
+            <div
+                class="dark-progress-wrap hidden"
+                id="darkProgressWrap"
+            >
+
+                <div class="dark-progress-track">
+
+                    <div
+                        class="dark-progress"
+                        id="darkProgress"
+                    ></div>
+
+                </div>
+
+                <p id="darkProgressText">
+                    developing...
+                </p>
+
+            </div>
+
+
+            <!-- FINAL ACTION -->
+            <div
+                class="darkroom-final-actions hidden"
+                id="darkroomFinalActions"
+            >
+
+                <button
+                    id="makePolaroid"
+                    class="dark-primary-btn"
+                >
+                    MAKE IT A POLAROID
+                </button>
+
+            </div>
+
+
+            <!-- FINAL POLAROID -->
+            <section
+                class="darkroom-polaroid-section hidden"
+                id="darkroomPolaroidSection"
+            >
+
+                <p class="stage-label">
+                    YOUR PRINT
+                </p>
+
+
+                <div
+                    class="dark-final-polaroid"
+                    id="darkFinalPolaroid"
+                >
+
+                    <div
+                        class="dark-final-inner"
+                        id="darkFinalInner"
+                    >
+
+                        <!-- FRONT -->
+                        <div class="dark-final-front">
+
+                            <img
+                                id="darkFinalImage"
+                                alt="Developed Polaroid"
+                            >
+
+                            <input
+                                type="text"
+                                id="darkCaption"
+                                maxlength="40"
+                                placeholder="write something..."
+                            >
+
+                            <span id="darkDate"></span>
+
+                        </div>
+
+
+                        <!-- BACK -->
+                        <div class="dark-final-back">
+
+                            <p class="back-small">
+                                the story behind this one
+                            </p>
+
+                            <textarea
+                                id="darkMemory"
+                                maxlength="220"
+                                placeholder="what do you remember?"
+                            ></textarea>
+
+                            <span id="darkBackDate"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dark-polaroid-actions">
+
+                    <button
+                        id="darkFlip"
+                        class="dark-text-btn"
+                    >
+                        FLIP PHOTO ↻
+                    </button>
+
+                    <button
+                        id="darkSave"
+                        class="dark-primary-btn"
+                    >
+                        SAVE TO SHOEBOX ♡
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/common.js"></script>
+    <script src="js/darkroom.js"></script>
+
+</body>
+
+</html>

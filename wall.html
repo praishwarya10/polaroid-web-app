@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Wall | Polaroid</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="wall-body">
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        POLAROID.
+    </a>
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="camera.html">CAMERA</a>
+        <a href="photobooth.html">PHOTOBOOTH</a>
+        <a href="darkroom.html">DARKROOM</a>
+        <a href="shoebox.html">SHOEBOX</a>
+        <a href="wall.html" class="active">WALL</a>
+    </nav>
+
+</header>
+
+
+<section class="wall-intro">
+
+    <div>
+
+        <p class="section-number">
+            05 / MEMORY WALL
+        </p>
+
+        <h1>
+            put the good<br>
+            ones somewhere.
+        </h1>
+
+    </div>
+
+    <p>
+        Drag them. Tilt them. Layer them.
+        There are no straight frames here.
+    </p>
+
+</section>
+
+
+<section class="wall-toolbar">
+
+    <button id="openMemoryPicker" class="primary-btn">
+        + ADD FROM SHOEBOX
+    </button>
+
+    <button id="addNote" class="secondary-btn">
+        + ADD NOTE
+    </button>
+
+    <button id="clearWall" class="wall-text-btn">
+        CLEAR WALL
+    </button>
+
+</section>
+
+
+<main
+    id="memoryWall"
+    class="memory-wall"
+>
+
+    <div id="emptyWall" class="empty-wall">
+
+        <span>+</span>
+
+        <h2>this wall is waiting.</h2>
+
+        <p>
+            Pin a memory from your Shoebox.
+        </p>
+
+    </div>
+
+</main>
+
+
+<!-- MEMORY PICKER -->
+
+<div id="wallPicker" class="wall-picker hidden">
+
+    <div
+        id="pickerBackdrop"
+        class="picker-backdrop">
+    </div>
+
+    <section class="picker-panel">
+
+        <div class="picker-heading">
+
+            <div>
+                <small>YOUR SHOEBOX</small>
+                <h2>Choose a memory</h2>
+            </div>
+
+            <button
+                id="closePicker"
+                class="viewer-close">
+                ×
+            </button>
+
+        </div>
+
+        <div
+            id="pickerMemories"
+            class="picker-memories">
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- SELECTED ITEM CONTROLS -->
+
+<div
+    id="wallItemControls"
+    class="wall-item-controls hidden"
+>
+
+    <button id="rotateLeft">
+        ↶
+    </button>
+
+    <button id="rotateRight">
+        ↷
+    </button>
+
+    <button id="smallerItem">
+        −
+    </button>
+
+    <button id="largerItem">
+        +
+    </button>
+
+    <button id="changePin">
+        TAPE
+    </button>
+
+    <button id="removeWallItem">
+        ×
+    </button>
+
+</div>
+
+
+<script src="js/common.js"></script>
+<script src="js/wall.js"></script>
+
+</body>
+
+</html>
